@@ -592,7 +592,7 @@ group("fidl") {
     "//garnet/go/src/fidl:fidlgen_types_test($host_toolchain)",
     "//garnet/public/lib/fidl/rust/fidl:rust_fidl_tests",
     "//garnet/tests/fidl-changes",
-    "//garnet/tests/fidl-dangerous-identifiers",
+    #"//garnet/tests/fidl-dangerous-identifiers",
     "//sdk/lib/fidl/cpp:fidl_cpp_host_conformance_test($host_toolchain)",
     "//sdk/lib/fidl/cpp:fidl_cpp_host_unittests($host_toolchain)",
     "//sdk/lib/fidl/cpp:fidl_tests",
