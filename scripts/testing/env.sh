@@ -4,7 +4,10 @@ FUCHSIA_DIR="$CURRENT_DIR"/../..
 OUTPUT_DIR=$FUCHSIA_DIR/out/default
 ZIRCON_OUTPUT_DIR=$FUCHSIA_DIR/out/default.zircon
 
-$FUCHSIA_DIR/.jiri_root/bin/fx metrics disable
+
+if [ -f $FUCHSIA_DIR/.jiri_root/bin/fx ]; then
+	$FUCHSIA_DIR/.jiri_root/bin/fx metrics disable
+fi
 
 QEMU_TEST_CMDS=/tmp/runcmds
 

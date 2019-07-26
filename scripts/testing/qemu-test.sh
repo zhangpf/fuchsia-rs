@@ -11,6 +11,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $FUCHSIA_DIR
 
 cat > $QEMU_TEST_CMDS << EOF
+
 mkdir /tmp/infra-test-output
 waitfor class=block topo=/dev/sys/pci/00:06.0/virtio-block/block timeout=60000
 mount /dev/sys/pci/00:06.0/virtio-block/block /tmp/infra-test-output 
