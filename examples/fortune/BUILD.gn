@@ -3,12 +3,14 @@
 # found in the LICENSE file.
 
 import("//build/package.gni")
+import("//build/rust/rustc_binary.gni")
 
-executable("bin") {
-  output_name = "fortune"
+rustc_binary("bin") {
+  name = "fortune"
+  edition = "2018"
 
-  sources = [
-    "fortune.c",
+  deps = [
+    "//third_party/rust_crates:rand",
   ]
 }
 
