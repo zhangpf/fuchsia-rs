@@ -13,8 +13,11 @@ cd $FUCHSIA_DIR
 $TESTSHARDER -build-dir out/default -output-file $ALL_TESTS
 jq '.[] | select(.name == "Linux") | .tests' $ALL_TESTS -a > $HOST_TESTS
 
-$TESTRUNNER -C out/default -archive $HOST_ARCHIVE $HOST_TESTS
+pushd `mktemp -d`
+$TESTRUNNER -C $OUTPUT_DIR -archive $HOST_ARCHIVE $HOST_TESTS
 
 SUMMARY=`tar -axf $HOST_ARCHIVE summary.json -O`
 
 ! echo $SUMMARY | grep FAIL > /dev/null
+
+popd
